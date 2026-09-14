@@ -1,0 +1,3 @@
+---
+profile::webserver::port: 8080
+profile::webserver::package_ensure: 'present'

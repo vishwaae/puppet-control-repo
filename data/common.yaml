@@ -1,2 +1,0 @@
-nginx::worker_processes: 4
-apache::mpm_module: 'prefork'
