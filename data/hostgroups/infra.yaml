@@ -1,5 +1,11 @@
----
-ntp::servers:
-  - '0.centos.pool.ntp.org'
-  - '1.centos.pool.ntp.org'
-profile::infra::disk_warn_threshold: 80
+vault::version: '1.15.2'
+vault::listen_address: '0.0.0.0'
+vault::user: 'vault'
+vault::manage_user: true
+vault::group: 'vault'
+vault::manage_group: true
+vault::bin_dir: '/usr/local/bin'
+vault::config_dir: '/etc/vault'
+vault::purge_config_dir: false
+vault::service_name: 'vault'
+vault::service_enable: true

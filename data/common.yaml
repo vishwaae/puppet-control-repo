@@ -1,0 +1,3 @@
+security::disabled_services:
+  - telnet
+  - ftp
