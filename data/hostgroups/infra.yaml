@@ -1,5 +1,3 @@
-vault::version: '1.15.2'
-vault::listen_address: '0.0.0.0'
 vault::user: 'vault'
 vault::manage_user: true
 vault::group: 'vault'
@@ -9,3 +7,7 @@ vault::config_dir: '/etc/vault'
 vault::purge_config_dir: false
 vault::service_name: 'vault'
 vault::service_enable: true
+vault::version: '1.15.2'
+vault::package_ensure: '1.15.2'
+vault::package_provider: 'yum'
+vault::package_source: 'https://releases.hashicorp.com/vault/1.15.2/vault_1.15.2_linux_amd64.zip'
