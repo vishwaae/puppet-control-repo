@@ -1,6 +1,6 @@
 class vault (
   String  $user             = lookup('vault::user'),
-  String  $manage_user      = lookup('vault::manage_user'),
+  Boolean		    = lookup('vault::manage_user'),
   String  $group            = lookup('vault::group'),
   String  $bin_dir          = lookup('vault::bin_dir'),
   String  $config_dir       = lookup("vault::config_dir"),
