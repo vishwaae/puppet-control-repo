@@ -27,18 +27,26 @@ class vault (
     require    => Group[$group],
   }
 
-  archive { "/tmp/vault_${version}.zip":
-    ensure       => present,
-    source       => $download_url,
-    extract      => true,
-    extract_path => $install_dir,
-    creates      => "${install_dir}/vault",
-    cleanup      => true,
+  package { 'unzip':
+    ensure => present,
   }
-  -> file { "${install_dir}/vault":
-    owner => 'root',
-    group => 'root',
-    mode  => '0755',
+
+  exec { 'download-vault':
+    command => "/usr/bin/curl -sL -o /tmp/vault_${version}.zip ${download_url}",
+    creates => "/tmp/vault_${version}.zip",
+  }
+
+  exec { 'extract-vault':
+    command => "/usr/bin/unzip -o /tmp/vault_${version}.zip -d ${install_dir}",
+    creates => "${install_dir}/vault",
+    require => [Exec['download-vault'], Package['unzip']],
+  }
+
+  file { "${install_dir}/vault":
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
+    require => Exec['extract-vault'],
   }
 
   file { $config_dir:
