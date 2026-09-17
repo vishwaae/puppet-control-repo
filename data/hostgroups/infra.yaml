@@ -6,9 +6,9 @@ vault::config_dir: '/etc/vault'
 vault::purge_config_dir: false
 vault::service_name: 'vault'
 vault::service_enable: true
-vault::package_ensure: 'present'
-vault::repo_baseurl: 'https://rpm.releases.hashicorp.com/RHEL/$releasever/$basearch/stable'
-vault::repo_gpgkey: 'https://rpm.releases.hashicorp.com/gpg'
+vault::version: '1.15.2'
+vault::download_url: 'https://releases.hashicorp.com/vault/1.15.2/vault_1.15.2_linux_amd64.zip'
+vault::install_dir: '/usr/local/bin'
 vault::listen_address: '0.0.0.0'
 vault::listen_port: 8200
 vault::ui_enabled: true

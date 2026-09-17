@@ -7,35 +7,38 @@ class vault (
   Boolean $purge_config_dir = lookup('vault::purge_config_dir'),
   String  $service_name     = lookup('vault::service_name'),
   Boolean $service_enable   = lookup('vault::service_enable'),
-  String  $package_ensure   = lookup('vault::package_ensure'),
-  String  $repo_baseurl     = lookup('vault::repo_baseurl'),
-  String  $repo_gpgkey      = lookup('vault::repo_gpgkey'),
+  String  $version          = lookup('vault::version'),
+  String  $download_url     = lookup('vault::download_url'),
+  String  $install_dir      = lookup('vault::install_dir'),
   String  $listen_address   = lookup('vault::listen_address'),
   Integer $listen_port      = lookup('vault::listen_port'),
   Boolean $ui_enabled       = lookup('vault::ui_enabled'),
   Boolean $tls_disable      = lookup('vault::tls_disable'),
 ) {
 
-  yumrepo { 'hashicorp':
-    baseurl  => $repo_baseurl,
-    descr    => 'HashiCorp Stable - $basearch',
-    enabled  => 1,
-    gpgcheck => 1,
-    gpgkey   => $repo_gpgkey,
-  }
-
-  package { 'vault':
-    ensure  => $package_ensure,
-    require => Yumrepo['hashicorp'],
+  group { $group:
+    ensure => present,
   }
 
   user { $user:
     ensure     => present,
     managehome => $manage_user,
+    gid        => $group,
+    require    => Group[$group],
   }
 
-  group { $group:
-    ensure => present,
+  archive { "/tmp/vault_${version}.zip":
+    ensure       => present,
+    source       => $download_url,
+    extract      => true,
+    extract_path => $install_dir,
+    creates      => "${install_dir}/vault",
+    cleanup      => true,
+  }
+  -> file { "${install_dir}/vault":
+    owner => 'root',
+    group => 'root',
+    mode  => '0755',
   }
 
   file { $config_dir:
@@ -51,9 +54,20 @@ class vault (
     notify  => Service[$service_name],
   }
 
+  file { "/etc/systemd/system/${service_name}.service":
+    ensure  => file,
+    content => template('vault/vault.service.erb'),
+    notify  => [Exec['systemd-reload-vault'], Service[$service_name]],
+  }
+
+  exec { 'systemd-reload-vault':
+    command     => '/usr/bin/systemctl daemon-reload',
+    refreshonly => true,
+  }
+
   service { $service_name:
     ensure  => running,
     enable  => $service_enable,
-    require => [Package['vault'], File["${config_dir}/config.hcl"]],
+    require => [File["${install_dir}/vault"], File["${config_dir}/config.hcl"], File["/etc/systemd/system/${service_name}.service"]],
   }
 }
