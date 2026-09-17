@@ -13,3 +13,4 @@ vault::listen_address: '0.0.0.0'
 vault::listen_port: 8200
 vault::ui_enabled: true
 vault::tls_disable: true
+vault::disable_mlock: true

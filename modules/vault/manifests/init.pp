@@ -1,5 +1,6 @@
 class vault (
   String  $user             = lookup('vault::user'),
+  Boolean $disable_mlock    = lookup('vault::disable_mlock'),
   Boolean $manage_user      = lookup('vault::manage_user'),
   String  $group            = lookup('vault::group'),
   Boolean $manage_group     = lookup('vault::manage_group'),
