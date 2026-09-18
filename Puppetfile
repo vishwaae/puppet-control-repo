@@ -6,7 +6,7 @@ mod 'puppetlabs-apt', '7.6.0'
 mod 'puppetlabs-motd', '5.2.0'
 
 # vault, nginx, ntp — one bundled repo, pinned to a released tag
-mod 'puppet-modules',
+mod 'internal',
   :git => 'https://github.com/vishwaae/puppet-modules.git',
   :tag => 'v2026.09.18'
 
