@@ -1,3 +1,18 @@
 security::disabled_services:
   - telnet
   - ftp
+
+ntp::package_name: 'ntp'
+ntp::service_name: 'ntpd'
+ntp::enable: true
+ntp::servers:
+  - '0.centos.pool.ntp.org'
+  - '1.centos.pool.ntp.org'
+
+timezone::name: 'Asia/Kolkata'
+
+resolve_conf::nameservers:
+  - '10.0.1.241'
+  - '10.1.0.6'
+  - '10.1.0.2'
+resolve_conf::search_domain: 'ec2.internal'

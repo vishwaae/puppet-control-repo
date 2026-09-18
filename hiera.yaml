@@ -5,7 +5,7 @@ defaults:
 hierarchy:
   - name: "Per-node data"
     path: "nodes/%{trusted.certname}.yaml"
-  - name: "Per-hostgroup data (from Foreman's own auto-injected fact)"
+  - name: "Per-hostgroup data"
     path: "hostgroups/%{hostgroup}.yaml"
   - name: "Common data"
     path: "common.yaml"
