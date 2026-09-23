@@ -8,7 +8,7 @@ mod 'puppetlabs-motd', '5.2.0'
 # vault, nginx, ntp — one bundled repo, pinned to a released tag
 mod 'internal',
   :git => 'https://github.com/vishwaae/puppet-modules.git',
-  :tag => 'v2026.09.18'
+  :tag => 'v1-mod'
 
 # standalone repo, tracking a branch's latest commit
 mod 'timezone',
