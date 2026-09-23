@@ -16,3 +16,18 @@ resolve_conf::nameservers:
   - '10.1.0.6'
   - '10.1.0.2'
 resolve_conf::search_domain: 'ec2.internal'
+#### puppet agent 5 value #####
+puppet_agent5::server: 'puppetmaster.puppetlab.com'
+puppet_agent5::masterport: 8142
+puppet_agent5::ca_server: 'puppetca.puppetlab.com'
+puppet_agent5::ca_port: 8141
+puppet_agent5::certificate_revocation: false
+puppet_agent5::agent_version: '5.5.22'
+puppet_agent5::repo_baseurl: 'https://yum.puppet.com/puppet5/el/7/$basearch'
+puppet_agent5::repo_gpgkey: 'https://yum.puppet.com/RPM-GPG-KEY-puppet-20250406'
+puppet_agent5::base_packages:
+  - 'bind-utils'
+  - 'socat'
+  - 'policycoreutils-python'
+  - 'rsync'
+  - 'epel-release'
