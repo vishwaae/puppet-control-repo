@@ -1,7 +1,5 @@
 forge 'https://forge.puppet.com'
 
-<<<<<<< HEAD
-=======
 mod 'puppetlabs-stdlib', '6.6.0'
 mod 'puppetlabs-concat', '6.4.0'
 mod 'puppetlabs-apt', '7.6.0'
@@ -20,4 +18,3 @@ mod 'timezone',
 mod 'resolve_conf',
   :git => 'https://github.com/vishwaae/puppet-resolve_conf-module.git',
   :commit => 'bac855b'
->>>>>>> origin/dev
