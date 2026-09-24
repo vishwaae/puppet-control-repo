@@ -11,11 +11,6 @@ ntp::servers:
 
 timezone::zone: 'Asia/Kolkata'
 
-resolve_conf::nameservers:
-  - '10.0.1.241'
-  - '10.1.0.6'
-  - '10.1.0.2'
-resolve_conf::search_domain: 'ec2.internal'
 #### puppet agent 5 value #####
 puppet_agent5::server: 'puppetmaster.puppetlab.com'
 puppet_agent5::masterport: 8142
@@ -31,3 +26,7 @@ puppet_agent5::base_packages:
   - 'policycoreutils-python'
   - 'rsync'
   - 'epel-release'
+resolve_conf::search_domain: 'puppetlab.com'
+resolve_conf::nameservers:
+  - '10.0.1.10'
+  - '10.0.1.40'
