@@ -3,6 +3,7 @@ forge 'https://forge.puppet.com'
 mod 'puppetlabs-stdlib', '6.6.0'
 mod 'puppetlabs-concat', '6.4.0'
 mod 'puppetlabs-apt', '7.6.0'
+mod 'puppetlabs-translate', '2.2.0'
 
 # vault, nginx, ntp — one bundled repo, pinned to a released tag
 mod 'internal',
