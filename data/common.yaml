@@ -9,7 +9,7 @@ ntp::servers:
   - '0.centos.pool.ntp.org'
   - '1.centos.pool.ntp.org'
 
-timezone::name: 'Asia/Kolkata'
+timezone::zone: 'Asia/Kolkata'
 
 resolve_conf::nameservers:
   - '10.0.1.241'
