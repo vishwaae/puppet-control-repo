@@ -1,7 +1,7 @@
 nginx::worker_processes: 4
-nginx::default_vhost: false
 nginx::package_name: 'nginx'
 nginx::service_name: 'nginx'
 nginx::ensure: 'installed'
 nginx::enable: true
 nginx::service_state: 'running'
+nginx::default_vhost: true
