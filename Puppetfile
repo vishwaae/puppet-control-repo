@@ -8,7 +8,7 @@ mod 'puppetlabs-translate', '2.2.0'
 # vault, nginx, ntp — one bundled repo, pinned to a released tag
 mod 'internal',
   :git => 'https://github.com/vishwaae/puppet-modules.git',
-  :tag => 'v6'
+  :tag => 'v7'
 
 # standalone repo, tracking a branch's latest commit
 mod 'timezone',
