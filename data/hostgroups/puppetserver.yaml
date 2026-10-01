@@ -1,5 +1,5 @@
 puppet_master7::manage_packages: true
-puppet_master7::agent_version: 'AGENT_VERSION'
+puppet_master7::agent_version: '7.34.0-1.el7'
 puppet_master7::puppetserver_version: '7.17.3-1.el7'
 puppet_master7::termini_version: '7.20.1-1.el7'
 puppet_master7::r10k_version: '3.16.0'
