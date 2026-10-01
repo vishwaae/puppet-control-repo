@@ -35,7 +35,7 @@ puppet_agent7::serverport: 8142
 puppet_agent7::ca_server: 'puppetca.puppetlab.com'
 puppet_agent7::ca_port: 8141
 puppet_agent7::certificate_revocation: false
-puppet_agent7::agent_version: 'CHANGE_ME'
+puppet_agent7::agent_version: '7.34.0-1.el7'
 puppet_agent7::repo_baseurl: 'https://yum.puppet.com/puppet7/el/7/$basearch'
 puppet_agent7::repo_gpgkey: 'https://yum.puppet.com/RPM-GPG-KEY-puppet-20250406'
 puppet_agent7::base_packages: ['bind-utils', 'socat', 'policycoreutils-python', 'rsync', 'epel-release']
