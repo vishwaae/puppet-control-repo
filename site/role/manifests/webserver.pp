@@ -1,5 +1,5 @@
 class role::webserver {
   include profile::base
   include profile::webserver
-  include puppet_agent5
+  include puppet_agent7
 }
